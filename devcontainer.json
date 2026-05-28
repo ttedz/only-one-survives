@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Only One Survives</title>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background: #0d0d12;
+        color: #e7e7ea;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+      h1 { font-size: 20px; letter-spacing: 0.15em; margin: 20px 0 4px; }
+      #subtitle { color: #8a8a93; font-size: 12px; margin-bottom: 16px; }
+      #game { border: 1px solid #26262e; border-radius: 8px; overflow: hidden; }
+      #overlay {
+        margin-top: 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+        justify-content: center;
+      }
+      button, input {
+        background: #16161c; color: #e7e7ea; border: 1px solid #2c2c36;
+        border-radius: 6px; padding: 8px 14px; font: inherit; font-size: 13px;
+      }
+      button { cursor: pointer; }
+      button:hover { border-color: #4a4a5a; }
+      #wallet-status { font-size: 12px; color: #6ad19b; }
+    </style>
+  </head>
+  <body>
+    <h1>ONLY ONE SURVIVES</h1>
+    <div id="subtitle">last player on a tile wins · powered by GenLayer</div>
+    <div id="game"></div>
+    <div id="overlay">
+      <input id="name" placeholder="display name" maxlength="16" />
+      <button id="connect">Connect wallet</button>
+      <span id="wallet-status"></span>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
