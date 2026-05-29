@@ -9,7 +9,7 @@
  */
 
 import { createClient } from "genlayer-js";
-import { testnetAsimov } from "genlayer-js/chains";
+import { simulator } from "genlayer-js/chains";
 
 const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
 
@@ -31,7 +31,7 @@ export async function connectWallet() {
 /** Read a player's leaderboard stats (free, no wallet needed). */
 export async function getPlayerStats(playerAddress) {
   if (!CONTRACT_ADDRESS) throw new Error("VITE_CONTRACT_ADDRESS not set");
-  const client = createClient({ chain: testnetAsimov });
+  const client = createClient({ chain: simulator });
   const raw = await client.readContract({
     address: CONTRACT_ADDRESS,
     functionName: "get_player",
@@ -43,7 +43,7 @@ export async function getPlayerStats(playerAddress) {
 /** Read total matches played (free). */
 export async function getTotalMatches() {
   if (!CONTRACT_ADDRESS) throw new Error("VITE_CONTRACT_ADDRESS not set");
-  const client = createClient({ chain: testnetAsimov });
+  const client = createClient({ chain: simulator });
   return client.readContract({
     address: CONTRACT_ADDRESS,
     functionName: "total_matches",

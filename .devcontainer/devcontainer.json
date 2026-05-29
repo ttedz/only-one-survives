@@ -1,0 +1,21 @@
+{
+  "name": "Only One Survives",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" }
+  },
+  "forwardPorts": [5173, 2567],
+  "portsAttributes": {
+    "5173": { "label": "Game client (Vite)", "onAutoForward": "openPreview" },
+    "2567": { "label": "Game server (Colyseus)", "onAutoForward": "silent" }
+  },
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "ms-python.python"
+      ]
+    }
+  }
+}

@@ -8,7 +8,7 @@
 
 import crypto from "node:crypto";
 import { createClient, createAccount } from "genlayer-js";
-import { testnetAsimov } from "genlayer-js/chains";
+import { simulator } from "genlayer-js/chains";
 
 const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
 const SERVER_PRIVATE_KEY = process.env.SERVER_PRIVATE_KEY;
@@ -19,7 +19,7 @@ function getClient() {
   if (!SERVER_PRIVATE_KEY) throw new Error("SERVER_PRIVATE_KEY not set");
   if (!client) {
     const account = createAccount(SERVER_PRIVATE_KEY);
-    client = createClient({ chain: testnetAsimov, account });
+    client = createClient({ chain: simulator, account });
   }
   return client;
 }

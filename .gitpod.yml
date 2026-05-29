@@ -1,0 +1,18 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Install dependencies
+    init: npm install
+
+ports:
+  - port: 5173
+    onOpen: open-preview
+    description: Game client (Vite)
+  - port: 2567
+    onOpen: ignore
+    description: Game server (Colyseus)
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - ms-python.python
